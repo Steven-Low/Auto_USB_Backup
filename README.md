@@ -10,7 +10,7 @@ Auto_USB_Backup is a program that automate download of files into usb drive when
 - In the Log section, select the Microsoft-Windows-DriverFrameworks-UserMode
 - In the EventID, type 2101
 - For the action, select start a program and specify the path of nothing.cmd
-- Modify the nothing.cmd to reference to the path of pullusb.py file
+
 
 - Finally, modify the pullusb.py file to save your preference
 - Please ensure all python modules are installed.
