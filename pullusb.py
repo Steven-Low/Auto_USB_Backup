@@ -37,9 +37,12 @@ def get_usb_drive_path(usb_drive_name):
 
 def copy_to_usb(source_folder, usb_drive_name = None, usb_relative_path: Optional[str] = "" ):
     if usb_drive_name:
-        usb_drive_path = get_usb_drive_path(usb_drive_name) + usb_relative_path
+        usb_drive_path = get_usb_drive_path(usb_drive_name)
 
     if usb_drive_path:
+        # Append relative path to default usb drive path (root)
+        usb_drive_path += usb_relative_path
+        
         # Recursively copy files from source folder to USB drive
         for root, _, files in os.walk(source_folder):
             for file_name in files:
@@ -59,7 +62,6 @@ def copy_to_usb(source_folder, usb_drive_name = None, usb_relative_path: Optiona
         print(f"USB drive not found.")
 
 if __name__ == "__main__":
-
 
     source_folder = "C:\\Users\\2002l\\Desktop\\Portal" # specify the folder you want to copy recursively to usb
     usb_drive_name = "VOID"          # to identify the volume label and default to usb root for file destination
